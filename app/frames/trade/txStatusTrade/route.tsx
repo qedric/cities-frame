@@ -84,7 +84,7 @@ const handleRequest = frames(async (ctx) => {
                 ? `Just sold ${amount > 1 ? `${amount} ${removeThe(building.metadata.name)} cards` : `${addThe(building.metadata.name)} card`} in /farconic! 💰`
                 : `Just bought ${amount > 1 ? `${amount} ${removeThe(building.metadata.name)} cards` : `${addThe(building.metadata.name)} card`} in /farconic! 👀`
 
-            const nameWithHyphens = building.metadata.name.replace(/\s/g, '-').toLowerCase()
+            const nameWithHyphens = building.metadata.name.replaceAll(/\s/g, '-').toLowerCase()
 
             const targetUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(shareText)}%0Ahttps://farconic-mintclub-building-trade.vercel.app?buildingName=${encodeURIComponent(nameWithHyphens)}`
 
